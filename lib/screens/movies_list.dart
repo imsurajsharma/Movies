@@ -18,6 +18,7 @@ class MoviesListState extends State<MoviesList>{
 
   final String url= "http://api.themoviedb.org/3/movie/popular?api_key=802b2c4b88ea1183e50e6b285a27696e";
   List data;
+  
 
   var _connectionStatus = 'Unknown';
   Connectivity connectivity;
@@ -84,7 +85,7 @@ class MoviesListState extends State<MoviesList>{
                   children: <Widget>[
                     new Card(
                       child: new ListTile(
-                        leading: new Image.network(mydata[index]['backdrop_path']),
+                        leading: new Image.network('https://image.tmdb.org/t/p/w500/'+ mydata[index]['backdrop_path']),
                         title: Text(mydata[index]['original_title']),
                         subtitle: Text(mydata[index]['title']),
                         onTap: () {
