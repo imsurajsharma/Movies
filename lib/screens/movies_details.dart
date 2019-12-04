@@ -17,7 +17,11 @@ class MoviesDetails extends StatefulWidget{
 
 class MoviesDetailsState extends State<MoviesDetails>{
 
-  final String url= "http://api.themoviedb.org/3/movie/popular?api_key=802b2c4b88ea1183e50e6b285a27696e";
+
+
+  String MOVIEID = "330457";
+
+  final String url= "http://api.themoviedb.org/3/movie/330457/videos?api_key=802b2c4b88ea1183e50e6b285a27696e";
   List data;
 
   var _connectionStatus = 'Unknown';
@@ -80,6 +84,7 @@ class MoviesDetailsState extends State<MoviesDetails>{
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               var mydata = snapshot.data;
+              print(mydata);
               return new ListView.builder(
           itemCount: mydata == null ? 0 : mydata.length,
           itemBuilder: (BuildContext context, int index) {
@@ -89,7 +94,7 @@ class MoviesDetailsState extends State<MoviesDetails>{
                 child: new Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    Text(mydata[index]['title'])
+                    Text(mydata[index]['name'])
                   
                   ],
                 ),
